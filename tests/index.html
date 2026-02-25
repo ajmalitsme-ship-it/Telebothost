@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeleBotHost Disclosure - {{BOT_ID}}</title>
+
+<style>
+
+*{ box-sizing:border-box; }
+
+html, body{
+    height:100%;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f1f3f6;
+    color:#222;
+}
+
+.page{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.card{
+    width:100%;
+    max-width:480px;
+    background:#fff;
+    border:1px solid #dadce0;
+    border-radius:3px;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 4px 12px rgba(0,0,0,0.06);
+}
+
+.section{
+    padding:18px;
+}
+
+.title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.domain{
+    font-size:16px;
+    background:#f8f9fa;
+    border:1px solid #e0e0e0;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:14px;
+    word-break:break-all;
+}
+
+.divider{
+    height:1px;
+    background:#e0e0e0;
+}
+
+ul{
+    margin:0;
+    padding-left:18px;
+}
+
+li{
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.button{
+    margin-top:15px;
+    background: transparent;
+    border: 1px solid #1a73e8;
+    color:#1a73e8;
+    padding:10px 16px;
+    font-size:14px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.button:hover{
+    background:#1669c1;
+    color: white;
+}
+
+/* developer/report section */
+
+.dev-section{
+    width:100%;
+    max-width:480px;
+    margin-top:25px;
+    font-size:16px;
+}
+
+.dev-title{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.dev-info{
+  color:#555;
+    line-height:1.5;
+}
+
+.report-box{
+    color: black;
+    line-height:1.5;
+}
+
+.report-box a{
+    color:#1a73e8;
+    text-decoration:none;
+}
+
+.report-box a:hover{
+    text-decoration:underline;
+}
+
+.footer{
+    text-align:center;
+    font-size:16px;
+    padding: 20px 12px;
+}
+
+.footer a {
+  text-decoration: none;
+  
+}
+
+</style>
+<script>
+async function proceed(){
+
+    const botId = "{{BOT_ID}}";
+
+    // minimal payload
+    const payload = {
+        b: botId,
+        t: Date.now()
+    };
+
+    const payloadStr = JSON.stringify(payload);
+
+    const payloadB64 = btoa(payloadStr);
+
+    // signature using botId as key
+    const signature = await sha256(botId + "." + payloadB64);
+
+    const token = payloadB64 + "." + signature;
+
+    // 48 hours expiry
+    document.cookie =
+        "tbh_verified=" + token +
+        "; path=/; max-age=" + (48 * 60 * 60) +
+        "; SameSite=Lax";
+
+    window.location.reload();
+}
+
+
+async function sha256(text){
+
+    const buffer =
+        await crypto.subtle.digest(
+            "SHA-256",
+            new TextEncoder().encode(text)
+        );
+
+    return Array
+        .from(new Uint8Array(buffer))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+</script>
+<script>
+// dynamic report link
+window.addEventListener("DOMContentLoaded", () => {
+
+    const reportLink = document.getElementById("reportLink");
+    const dmLink = document.getElementById("domain");
+
+    const url = encodeURIComponent(window.location.href);
+    
+    const botId = encodeURIComponent("{{BOT_ID}}");
+dmLink.textContent = window.location.href
+    reportLink.href =
+        "https://telebothost.com/report?" +
+        "bot_id=" + botId +
+        "&url=" + url;
+});
+
+</script>
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="content">
+
+<!-- Main Card -->
+
+<div class="card">
+
+<div class="section">
+
+<div class="title">
+You are about to visit:
+</div>
+
+<div id="domain" class="domain">
+{{HOSTNAME}}
+</div>
+
+<ul>
+<li>This page is served securely via TeleBotHost.</li>
+<li>Only continue if you trust whoever shared this link.</li>
+<li>Avoid entering sensitive information unless trusted.</li>
+</ul>
+
+<button class="button" onclick="proceed()">
+Continue to Site
+</button>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+This warning is shown once to protect visitors from abuse.
+</div>
+
+</div>
+
+<!-- Developer / Abuse Report -->
+
+<div class="dev-section">
+
+<div class="dev-title">
+Are you the developer?
+</div>
+<p class="dev-info">We display this page to prevent abuse. Visitors will only see this page once every 48 hours.
+</p>
+</div>
+
+<div class="report-box">
+  
+<p style="font-weight:bold;">If you think this website is being misused, please report it using one of the following methods:</p>
+
+<b>Email:</b><br>
+<a href="mailto:abuse@telebothost.com">
+abuse@telebothost.com
+</a><i>(Don't forget to attach this web url on message)</i>
+
+<br><br>
+
+<b>Report Form:</b><br>
+<a id="reportLink" href="#">
+telebothost.com/report
+</a>
+
+<br><br>
+
+<b>Telegram Group:</b><br>
+<a href="https://t.me/update_chat" target="_blank">
+https://t.me/update_chat
+</a>
+
+<br>
+Send a message including:<br>
+
+• BOT ID: {{BOT_ID}}<br>
+• Full URL of the page<br>
+• Description of the abuse
+
+</div>
+
+</div>
+
+
+<div class="divider"></div>
+
+<div class="footer">
+ Powered by <a href="//telebothost.com">TeleBotHost</a>
+</div>
+
+</div>
+
+</body>
+</html>

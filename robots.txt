@@ -1,0 +1,8 @@
+# TeleBotHost - robots.txt
+User-agent: *
+Allow: /
+
+Disallow: /cdn-cgi/
+
+# Sitemap
+Sitemap: https://telebothost.com/sitemap.xml

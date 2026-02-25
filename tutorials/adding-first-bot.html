@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Your First Telegrm Bot </title><!-- Primary Meta Tags -->
+<meta name="title" content="Adding Your First Bot | TeleBotHost">
+<meta name="description" content="Learn how to create and launch your first Telegram bot with TeleBotHost. Step-by-step guide covering setup, adding tokens, commands, and testing your bot.">
+<meta name="keywords" content="
+Telegram bot hosting, free Telegram bot hosting, best Telegram bot hosting, secure Telegram bot server, scalable bot hosting, fast Telegram bot hosting, 24/7 Telegram bot uptime, automated Telegram bots, TeleBotHost, Tele-Bot-Host, TeleBotHaven, TelebotCreator, online Telegram bot hosting, Telegram bot deployment, cloud bot hosting, serverless Telegram bot hosting, PythonAnywhere Telegram bots, AWS Lambda Telegram bots, Oracle Cloud Telegram bots, HostArmada Telegram bot hosting, high-performance bot hosting, Telegram bot management, reliable bot servers, affordable Telegram bot hosting, top Telegram bot hosting 2025, free tier bot hosting, Telegram bot automation, Telegram bot server cost, Telegram bot hosting comparison, Telegram bot hosting tutorial, Telegram bot hosting guide, Telegram bot hosting platform review, host Telegram bots instantly, Telegram bot hosting solutions, Telegram bot hosting providers, Telegram bot hosting features, Telegram bot hosting for beginners, Telegram bot hosting experts, Telegram bot server performance, best free Telegram bot host, Telegram bot hosting tips, Telegram bot development, Telegram bot hosting reviews, Telegram bot cloud hosting, Telegram bot hosting fast server, Telegram bot hosting online, top free Telegram bot hosting, Telegram bot automation tools, Telegram bot platform, cheap Telegram bot servers, scalable Telegram hosting, high-speed bot hosting, Telegram bot server setup, Telegram bot hosting security, best hosting for Telegram bots, Telegram bot server management, Telegram bot hosting service, Telegram bot hosting site, top Telegram bot platforms, TBL Language, TeleBotHost, Telegram bots, bot development, TBL documentation, TBL tutorial, TeleBotHost guides, Telegram API, bot programming, how to nade Telegrm bot
+">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://telebothost.com/tutorials/adding-first-bot">
+<meta property="og:title" content="Adding Your First Bot | TeleBotHost">
+<meta property="og:description" content="Step-by-step tutorial to add your first Telegram bot using TeleBotHost. Learn to manage commands, launch your bot, and explore advanced features.">
+<meta property="og:image" content="https://telebothost.com/assets/images/tutorials.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://telebothost.com/tutorials/adding-first-bot">
+<meta property="twitter:title" content="Adding Your First Bot | TeleBotHost">
+<meta property="twitter:description" content="Complete guide to create and run your first Telegram bot with TeleBotHost. Learn setup, add tokens, commands, and test your bot.">
+<meta property="twitter:image" content="https://telebothost.com/assets/images/tutorials.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2719295794573158" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+  <style>
+    section { padding:80px 20px; max-width:950px; margin:auto; line-height:1.7; }
+    h2 { font-size:2rem; color:#0088cc; text-align:center; margin-bottom:10px; }
+    p.subtitle { text-align:center; margin-bottom:40px; color:#666; font-size:1.05rem; }
+
+    h3 { font-size:1.4rem; color:#0088cc; margin-top:40px; margin-bottom:15px; }
+    p { margin-bottom:15px; color:#333; }
+    ul { margin:15px 0 20px 20px; }
+    li { margin-bottom:15px; }
+    pre { background:#f9f9f9; padding:15px; border-radius:10px; overflow-x:auto; font-size:0.95rem; margin:15px 0; border:1px solid #eee; }
+    code { color:#d63384; }
+
+    .step-number { font-weight:600; color:#0088cc; margin-right:5px; }
+    .important { font-weight:600; color:#d63384; }
+.img-step {
+  max-width: 50%;
+  height: auto;           /* maintain aspect ratio */
+  margin: 10px auto 25px; /* top, horizontal center, bottom */
+  border-radius: 10px;
+  border: 1px solid #eee;
+  display: block;         /* makes margin:auto work for centering */
+}
+    a { color:#0088cc; text-decoration:none; font-weight: bold;}
+
+  </style>
+</head>
+<body>
+  <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-2719295794573158">
+</amp-auto-ads>
+<header id="header">
+  <div class="container nav-container">
+    <a href="/" class="logo">
+      <img src="/assets/img/logo.png" alt="TeleBotHost Logo">
+      TeleBotHost
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/tutorials/" class="nav-link">Tutorials</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <h2>Adding Your First Bot</h2>
+  <p class="subtitle">A complete step-by-step guide to create and run your first bot using TeleBotHost.</p>
+
+  <h3>Step 1: Visit TeleBotHost</h3>
+  <p>Open your browser and go to <a href="https://telebothost.com/" target="_blank">https://telebothost.com/</a>. This is the main platform where you can manage all your bots.</p>
+  <img src="/assets/img/step1.jpg" alt="TeleBotHost Homepage" class="img-step">
+
+  <h3>Step 2: Get Started</h3>
+  <p>Click the <b>Get Started</b> button to proceed. You will be redirected to the login/signup page.</p>
+  <img src="/assets/img/step2.jpg" alt="Get Started Button" class="img-step">
+
+  <h3>Step 3: Login or Signup</h3>
+  <p>Login with your credentials or create a new account if you don’t have one. After logging in, you will see your dashboard.</p>
+  <img src="/assets/img/step3.jpg" alt="User Dashboard" class="img-step">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-2719295794573158"
+     data-ad-slot="8786409519"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+  <h3>Step 4: Add a New Bot</h3>
+  <p>On the dashboard, locate the <b>Add Bot</b> button or the <b>+ icon</b> and click it. A modal will appear asking for your bot token.</p>
+  <img src="/assets/img/step4.jpg" alt="Add Bot Button" class="img-step">
+
+  <h3>Step 5: How to Get Your Bot Token</h3>
+  <p>To create a Telegram bot and get its token, you need to use <a href="https://t.me/BotFather" target="_blank">@BotFather</a> on Telegram:</p>
+  <ul>
+    <li>Open Telegram and search for <b>@BotFather</b>.</li>
+    <li>Start a chat and send <code>/newbot</code>.</li>
+    <li>Follow the instructions: give your bot a name and a unique username.</li>
+    <li>After successful creation, BotFather will provide your <b>bot token</b>. Copy this token.</li>
+  </ul>
+  <img src="/assets/img/step5.jpg" alt="BotFather Token" class="img-step">
+
+  <h3>Step 6: Add Token in TeleBotHost</h3>
+  <p>Paste your bot token into the input box in the modal. You can also give your bot a custom name for easy identification.</p>
+  <img src="/assets/img/step6.jpg" alt="Paste Bot Token" class="img-step">
+
+  <h3>Step 7: View Your Bot in the Dashboard</h3>
+  <p>After adding the token, your bot will appear in the bot list. Click on your bot’s name to access its management panel.</p>
+  <img src="/assets/img/step7.jpg" alt="Bot List Dashboard" class="img-step">
+
+  <h3>Step 8: Start Your Bot</h3>
+  <p>Click <b>Launch Bot</b> to activate it. Your bot is now live and ready to receive commands.</p>
+  <img src="/assets/img/step8.jpg" alt="Start Bot" class="img-step">
+
+  <h3>Step 9: Add Commands</h3>
+  <p>On top of the bot panel, click the <b>Commands</b> button. Here you can add and manage commands for your bot:</p>
+  <ul>
+    <li>Click the <b>+</b> button to create a new command.</li>
+    <li>For example, add <code>/start</code> as the command.</li>
+    <li>In the response input, type: <i>"Hi from bot"</i>.</li>
+    <li>Click <b>Save</b> to finalize.</li>
+  </ul>
+  <img src="/assets/img/step9.jpg" alt="Add Command Panel" class="img-step">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-2719295794573158"
+     data-ad-slot="8786409519"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+  <h3>Step 10: Test Your Bot</h3>
+  <p>Go to Telegram, open your bot, and send <code>/start</code>. Your bot will reply with the message you set, e.g., <i>"Hi from bot"</i>.</p>
+  <img src="/assets/img/step10.jpg" alt="Test Bot in Telegram" class="img-step">
+
+  <h3>Step 11: Explore More Features</h3>
+  <p>Congratulations! 🎉 You have successfully added your first bot. Explore the <a href="/docs" target="_blank">documentation</a> for advanced features like:</p>
+  <ul>
+    <li>Custom command responses</li>
+    <li>Inline keyboards and buttons</li>
+    <li>API integrations</li>
+    <li>Advanced bot settings and analytics</li>
+  </ul>
+
+  <p class="subtitle"><i class="fas fa-book"></i> Visit <a href="/docs">/docs</a> to unlock the full potential of your bots!</p>
+  
+
+<div style="display:flex; justify-content:center; margin:50px auto; max-width:900px;">
+  <a href="/tutorials/setup-bot-code" 
+     style="padding:10px 22px; border:2px dotted #888; border-radius:8px; background:transparent; color:#0088cc; text-decoration:none; text-align:center; transition:all 0.2s; line-height:1.2;">
+     
+     <div style="font-size:16px; font-weight:bold;">Next </div>
+     <div style="font-size:12px; color:#666;">Managing your bot with Codes</div>
+  </a>
+</div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-2719295794573158"
+     data-ad-slot="8786409519"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/cookies">Cookies</a>
+    <a href="/resources">Resources</a>
+  </div>
+</footer>
+</body>
+</html>
