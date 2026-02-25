@@ -1,0 +1,11 @@
+{
+  "name": "telebot-host",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node Bckend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
